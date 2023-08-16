@@ -12,6 +12,11 @@
       (final: prev: {
         protonvpn-pmp-transmission = prev.poetry2nix.mkPoetryApplication {
           projectDir = ./.;
+          overrides = prev.poetry2nix.defaultPoetryOverrides.extend (self: super: {
+            py-natpmp = super.py-natpmp.overridePythonAttrs (old: {
+              buildInputs = (old.buildInputs or []) ++ [ super.setuptools ];
+            });
+          });
         };
       })
     ];
