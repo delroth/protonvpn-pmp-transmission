@@ -12,6 +12,8 @@ protonvpn-pmp-transmission = "protonvpn_pmp_transmission.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+transmission-rpc = "^4.3.0"
+py-natpmp = "^0.2.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
