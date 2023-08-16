@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "protonvpn-pmp-transmission"
+version = "0.1.0"
+description = "A daemon to allocate ProtonVPN port mappings and inform Transmission of said mappings."
+authors = ["Pierre Bourdon <delroth@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "protonvpn_pmp_transmission"}]
+
+[tool.poetry.scripts]
+protonvpn-pmp-transmission = "protonvpn_pmp_transmission.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
