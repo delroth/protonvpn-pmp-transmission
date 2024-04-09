@@ -2,13 +2,13 @@
   description = "A daemon to allocate ProtonVPN port mappings and inform Transmission of said mappings.";
 
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.poetry2nix.url = "github:nix-community/poetry2nix";
   inputs.poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = { self, nixpkgs, flake-utils, poetry2nix }: {
     overlay = nixpkgs.lib.composeManyExtensions [
-      poetry2nix.overlay
+      poetry2nix.overlays.default
       (final: prev: {
         protonvpn-pmp-transmission = prev.poetry2nix.mkPoetryApplication {
           projectDir = ./.;
